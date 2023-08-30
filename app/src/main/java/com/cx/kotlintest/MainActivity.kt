@@ -5,6 +5,10 @@ import android.os.Bundle
 import com.cx.kotlintest.base.For
 import com.cx.kotlintest.base.If
 import com.cx.kotlintest.base.When
+import com.cx.kotlintest.coolection_lambda.CollectionAPI
+import com.cx.kotlintest.coolection_lambda.CollectionDemo
+import com.cx.kotlintest.coolection_lambda.JavaAPI
+import com.cx.kotlintest.coolection_lambda.Lambda
 import com.cx.kotlintest.oop.Phone
 import com.cx.kotlintest.oop.Phone_data
 import com.cx.kotlintest.oop.Student1
@@ -20,17 +24,34 @@ class MainActivity : AppCompatActivity() {
     // 限定数据类型为int，注意，kotlin中，没有类似java的基本数据类型，全都是对象数据类型
     private val c: Int = 10
 
+    /**
+     * 定义一个双参方法，数据类型和返回值都是放在：后面
+     * */
+    private fun getLargerNum(a: Int, b: Int): Int {
+        return max(a, b)
+    }
+
+    /**
+     * 语法糖：若方法内部只有一行代码，则不用写{}，直接写在 = 后面
+     * */
+    private fun getLargerNum2(a: Int, b: Int): Int = max(a, b)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        // 基础：if、when、for-in循环
         base()
+        // 面相对象编程：继承、重写、实现、主次构造方法、单例类
         oop()
+        // 集合、集合的常用函数API、lambda表达式
+        collection_lambda()
     }
 
     private fun base() {
         getLargerNum(a, b)
         getLargerNum2(b, c)
+
         If.getLargerNum3(a, b)
         If.getLargerNum33(a, b)
         If.getLargerNum333(a, b)
@@ -63,15 +84,32 @@ class MainActivity : AppCompatActivity() {
         //println("chuxiao oop(), phone == phoneData: " + (phone == phoneData))// error
     }
 
-    /**
-     * 定义一个双参方法，数据类型和返回值都是放在：后面
-     * */
-    private fun getLargerNum(a: Int, b: Int): Int {
-        return max(a, b)
-    }
+    private fun collection_lambda() {
+        CollectionDemo.listof()
+        CollectionDemo.mutableListOf()
 
-    /**
-     * 语法糖：若方法内部只有一行代码，则不用写{}，直接写在 = 后面
-     * */
-    private fun getLargerNum2(a: Int, b: Int): Int = max(a, b)
+        CollectionDemo.setof()
+        CollectionDemo.mutableSetOf()
+
+        CollectionDemo.mapJava()
+        CollectionDemo.mapKT()
+        CollectionDemo.mapKT_simple()
+
+        Lambda.getLongestFruit()
+        Lambda.getLongestFruit2()
+        Lambda.getLongestFruit22()
+        Lambda.getLongestFruit222()
+        Lambda.getLongestFruit_simple()// 极简写法
+
+        CollectionAPI.mapAPI()
+        CollectionAPI.filter()
+        CollectionAPI.filterMap()
+        CollectionAPI.any_all()
+
+        JavaAPI.javaRunThread()
+        JavaAPI.runThread_simple()
+        JavaAPI.runThread_simple2()
+        JavaAPI.runThread_simple3()// 执行一个线程的极简写法
+        JavaAPI.onClickListener(this)// 点击事件的极简写法
+    }
 }
