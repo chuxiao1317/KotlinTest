@@ -48,8 +48,8 @@ class MainActivity : AppCompatActivity() {
         oop()
         // 集合、集合的常用函数API、lambda表达式
         collection_lambda()
-        // 判空
-        checkNull()
+        // 判空、let函数、参数默认值、键值对传参
+        base2()
     }
 
     private fun base() {
@@ -117,16 +117,14 @@ class MainActivity : AppCompatActivity() {
         JavaAPI.onClickListener(this)// 点击事件的极简写法
     }
 
-    private fun checkNull() {
+    private fun base2() {
         NullCheck.checkNull_if(null)
         NullCheck.checkNull_kt1(null)
         NullCheck.checkNull_kt2(null)
         // ?.和?:操作符连用
         NullCheck.checkNull_kt1_kt2(null)
-
         // 全局判空(断言)
         NullCheck.checkNull_global_assert()
-
         // 用let函数进行辅助判空，取代风险断言
         NullCheck.let(null)
 
