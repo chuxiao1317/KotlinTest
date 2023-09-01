@@ -39,7 +39,7 @@ object Lambda {
      * getLongestFruit22()简化版
      * */
     fun getLongestFruit222() {
-        // 当lambda参数是函数的最后一个参数时，可把lambda表达式放到（）外面
+        // 当lambda参数是函数的最后一个参数时，可把lambda表达式放到（）外面，使得maxBy像无参函数
         println("getLongestFruit222-1: " + fruitList.maxBy() { name: String -> name.length })
         // 如果lambda是唯一参数，可省略（）
         println("getLongestFruit222-2: " + fruitList.maxBy { name: String -> name.length })

@@ -14,6 +14,9 @@ import com.cx.kotlintest.base2.NullCheck
 import com.cx.kotlintest.oop.Phone
 import com.cx.kotlintest.oop.Phone_data
 import com.cx.kotlintest.oop.Student1
+import com.cx.kotlintest.base3.StandardFun
+import com.cx.kotlintest.base3.StaticFun
+import com.cx.kotlintest.base3.topStatic
 import kotlin.math.max
 
 class MainActivity : AppCompatActivity() {
@@ -50,6 +53,8 @@ class MainActivity : AppCompatActivity() {
         collection_lambda()
         // 判空、let函数、参数默认值、键值对传参
         base2()
+        // 标准函数、静态方法、顶层方法
+        base3()
     }
 
     private fun base() {
@@ -134,5 +139,17 @@ class MainActivity : AppCompatActivity() {
         ParamDefault.printDefault_param1(str = "传入参数")
         // 用键值对传参时，顺序无所谓
         ParamDefault.transParam_keyValue(str = "传入参数", num = 123)
+    }
+
+    private fun base3() {
+        StandardFun.repeatCall()
+        StandardFun.with()
+        StandardFun.run()
+        StandardFun.apply()
+
+        StaticFun().objFun()// 必须用对象调用的普通方法
+        StaticFun.staticFun()// 类似于静态方法的伴生单例类方法
+        topStatic()// kotlin可以直接调用顶层方法
+        JavaTest.test()// 从java调用kotlin的静态方法
     }
 }

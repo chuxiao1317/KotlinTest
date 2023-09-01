@@ -2,7 +2,7 @@ package com.cx.kotlintest.base
 
 /**
  * class开头的是普通类
- * object开头的是单例类，单例类里面的方法都是可以直接用类名调用的，类似静态方法
+ * object开头的是单例类，单例类里面的方法都是可以直接用类名调用的，类似静态方法，但只能在被kotlin调用
  * */
 object For {
     fun simpleFor() {
