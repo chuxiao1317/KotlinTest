@@ -5,10 +5,12 @@ import android.os.Bundle
 import com.cx.kotlintest.base.For
 import com.cx.kotlintest.base.If
 import com.cx.kotlintest.base.When
+import com.cx.kotlintest.base2.ParamDefault
 import com.cx.kotlintest.coolection_lambda.CollectionAPI
 import com.cx.kotlintest.coolection_lambda.CollectionDemo
 import com.cx.kotlintest.coolection_lambda.JavaAPI
 import com.cx.kotlintest.coolection_lambda.Lambda
+import com.cx.kotlintest.base2.NullCheck
 import com.cx.kotlintest.oop.Phone
 import com.cx.kotlintest.oop.Phone_data
 import com.cx.kotlintest.oop.Student1
@@ -46,6 +48,8 @@ class MainActivity : AppCompatActivity() {
         oop()
         // 集合、集合的常用函数API、lambda表达式
         collection_lambda()
+        // 判空
+        checkNull()
     }
 
     private fun base() {
@@ -111,5 +115,26 @@ class MainActivity : AppCompatActivity() {
         JavaAPI.runThread_simple2()
         JavaAPI.runThread_simple3()// 执行一个线程的极简写法
         JavaAPI.onClickListener(this)// 点击事件的极简写法
+    }
+
+    private fun checkNull() {
+        NullCheck.checkNull_if(null)
+        NullCheck.checkNull_kt1(null)
+        NullCheck.checkNull_kt2(null)
+        // ?.和?:操作符连用
+        NullCheck.checkNull_kt1_kt2(null)
+
+        // 全局判空(断言)
+        NullCheck.checkNull_global_assert()
+
+        // 用let函数进行辅助判空，取代风险断言
+        NullCheck.let(null)
+
+        // 参数2设置了默认值，可以不传参数2
+        ParamDefault.printDefault_param2(123)
+        // 参数1设置了默认值，需要用键值对传参，因为编译器默认我们都是从参数1开始传参，不写键值对无法保证准确匹配参数
+        ParamDefault.printDefault_param1(str = "传入参数")
+        // 用键值对传参时，顺序无所谓
+        ParamDefault.transParam_keyValue(str = "传入参数", num = 123)
     }
 }
