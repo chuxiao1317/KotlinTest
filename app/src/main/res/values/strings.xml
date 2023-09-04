@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">KotlinTest</string>
+    <string name="back">返回</string>
+    <string name="edit">编辑</string>
 </resources>

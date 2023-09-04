@@ -17,6 +17,8 @@ import com.cx.kotlintest.oop.Student1
 import com.cx.kotlintest.base3.StandardFun
 import com.cx.kotlintest.base3.StaticFun
 import com.cx.kotlintest.base3.topStatic
+import com.cx.kotlintest.chapter4.LateInit
+import com.cx.kotlintest.chapter4.Result
 import kotlin.math.max
 
 class MainActivity : AppCompatActivity() {
@@ -44,6 +46,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        supportActionBar?.hide()
 
         // 基础：if、when、for-in循环
         base()
@@ -55,6 +58,8 @@ class MainActivity : AppCompatActivity() {
         base2()
         // 标准函数、静态方法、顶层方法
         base3()
+        // 延迟初始化、密封类-优化多余的when-else
+        chapter4()
     }
 
     private fun base() {
@@ -151,5 +156,13 @@ class MainActivity : AppCompatActivity() {
         StaticFun.staticFun()// 类似于静态方法的伴生单例类方法
         topStatic()// kotlin可以直接调用顶层方法
         JavaTest.test()// 从java调用kotlin的静态方法
+    }
+
+    private fun chapter4() {
+        LateInit.doIt()// 延迟初始化
+
+        // 密封类
+        val result = Result.Success("成功回调")
+        result.printResultMsg(result)
     }
 }
