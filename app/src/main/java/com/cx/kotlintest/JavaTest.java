@@ -1,7 +1,7 @@
 package com.cx.kotlintest;
 
-import com.cx.kotlintest.base3.StaticFun;
-import com.cx.kotlintest.base3.TopStaticKt;
+import com.cx.kotlintest.base3_standard_static.StaticFun;
+import com.cx.kotlintest.base3_standard_static.TopStaticKt;
 
 public class JavaTest {
     public static void test() {

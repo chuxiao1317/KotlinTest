@@ -5,22 +5,22 @@ import android.os.Bundle
 import com.cx.kotlintest.base.For
 import com.cx.kotlintest.base.If
 import com.cx.kotlintest.base.When
-import com.cx.kotlintest.base2.ParamDefault
-import com.cx.kotlintest.coolection_lambda.CollectionAPI
-import com.cx.kotlintest.coolection_lambda.CollectionDemo
-import com.cx.kotlintest.coolection_lambda.JavaAPI
-import com.cx.kotlintest.coolection_lambda.Lambda
-import com.cx.kotlintest.base2.NullCheck
-import com.cx.kotlintest.oop.Phone
-import com.cx.kotlintest.oop.Phone_data
-import com.cx.kotlintest.oop.Student1
-import com.cx.kotlintest.base3.StandardFun
-import com.cx.kotlintest.base3.StaticFun
-import com.cx.kotlintest.base3.topStatic
-import com.cx.kotlintest.chapter4.LateInit
-import com.cx.kotlintest.chapter4.Result
-import com.cx.kotlintest.chapter5.ExpandFun
-import com.cx.kotlintest.chapter5.operator.OperatorTest
+import com.cx.kotlintest.base2_null_paramDefault.ParamDefault
+import com.cx.kotlintest.base1_oop_collection_lanmda.coolection_lambda.CollectionAPI
+import com.cx.kotlintest.base1_oop_collection_lanmda.coolection_lambda.CollectionDemo
+import com.cx.kotlintest.base1_oop_collection_lanmda.coolection_lambda.JavaAPI
+import com.cx.kotlintest.base1_oop_collection_lanmda.coolection_lambda.Lambda
+import com.cx.kotlintest.base2_null_paramDefault.NullCheck
+import com.cx.kotlintest.base1_oop_collection_lanmda.oop.Phone
+import com.cx.kotlintest.base1_oop_collection_lanmda.oop.Phone_data
+import com.cx.kotlintest.base1_oop_collection_lanmda.oop.Student1
+import com.cx.kotlintest.base3_standard_static.StandardFun
+import com.cx.kotlintest.base3_standard_static.StaticFun
+import com.cx.kotlintest.base3_standard_static.topStatic
+import com.cx.kotlintest.chapter4_lateinit_sealed.LateInit
+import com.cx.kotlintest.chapter4_lateinit_sealed.Result
+import com.cx.kotlintest.chapter5_expand_operator.ExpandFun
+import com.cx.kotlintest.chapter5_expand_operator.operator.OperatorTest
 import kotlin.math.max
 
 class MainActivity : AppCompatActivity() {
@@ -45,6 +45,14 @@ class MainActivity : AppCompatActivity() {
      * */
     private fun getLargerNum2(a: Int, b: Int): Int = max(a, b)
 
+    /**
+     * getLargerNum2简化
+     *
+     * 类似于变量的类型反推机制，= 后面的返回值会让编译器知道方法的返回值类型
+     * 因此不必显式声明返回值类型
+     * */
+    private fun getLargerNum3(a: Int, b: Int) = max(a, b)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -64,11 +72,14 @@ class MainActivity : AppCompatActivity() {
         chapter4()
         // 扩展函数、运算符重载
         chapter5()
+        // 高阶函数
+        chapter6()
     }
 
     private fun base() {
         getLargerNum(a, b)
         getLargerNum2(b, c)
+        getLargerNum3(b, c)
 
         If.getLargerNum3(a, b)
         If.getLargerNum33(a, b)
@@ -176,5 +187,9 @@ class MainActivity : AppCompatActivity() {
 
         // 运算符重载：对象之间进行加减乘除等运算
         OperatorTest.test()
+    }
+
+    private fun chapter6() {
+
     }
 }
