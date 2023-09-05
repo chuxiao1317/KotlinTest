@@ -1,5 +1,8 @@
 package com.cx.kotlintest.chapter4
 
+/**
+ * 密封类
+ * */
 sealed class Result {
     // 子类继承Result
     class Success(val msg: String) : Result()

@@ -19,6 +19,8 @@ import com.cx.kotlintest.base3.StaticFun
 import com.cx.kotlintest.base3.topStatic
 import com.cx.kotlintest.chapter4.LateInit
 import com.cx.kotlintest.chapter4.Result
+import com.cx.kotlintest.chapter5.ExpandFun
+import com.cx.kotlintest.chapter5.operator.OperatorTest
 import kotlin.math.max
 
 class MainActivity : AppCompatActivity() {
@@ -60,6 +62,8 @@ class MainActivity : AppCompatActivity() {
         base3()
         // 延迟初始化、密封类-优化多余的when-else
         chapter4()
+        // 扩展函数、运算符重载
+        chapter5()
     }
 
     private fun base() {
@@ -164,5 +168,13 @@ class MainActivity : AppCompatActivity() {
         // 密封类
         val result = Result.Success("成功回调")
         result.printResultMsg(result)
+    }
+
+    private fun chapter5() {
+        ExpandFun.test()// 扩展函数
+        ExpandFun.operator()// 扩展函数 * 运算符重载
+
+        // 运算符重载：对象之间进行加减乘除等运算
+        OperatorTest.test()
     }
 }
