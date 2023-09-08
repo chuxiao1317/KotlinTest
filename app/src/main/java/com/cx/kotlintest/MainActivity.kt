@@ -21,6 +21,9 @@ import com.cx.kotlintest.chapter4_lateinit_sealed.LateInit
 import com.cx.kotlintest.chapter4_lateinit_sealed.Result
 import com.cx.kotlintest.chapter5_expand_operator.ExpandFun
 import com.cx.kotlintest.chapter5_expand_operator.operator.OperatorTest
+import com.cx.kotlintest.chapter6_higherFun.Crossline
+import com.cx.kotlintest.chapter6_higherFun.HigherFun
+import com.cx.kotlintest.chapter6_higherFun.Noinline
 import kotlin.math.max
 
 class MainActivity : AppCompatActivity() {
@@ -72,11 +75,12 @@ class MainActivity : AppCompatActivity() {
         chapter4()
         // 扩展函数、运算符重载
         chapter5()
-        // 高阶函数
+        // 高阶函数、内联、非内联
         chapter6()
     }
 
     private fun base() {
+        println("--------------------base--------------------")
         getLargerNum(a, b)
         getLargerNum2(b, c)
         getLargerNum3(b, c)
@@ -93,6 +97,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun oop() {
+        println("--------------------oop--------------------")
         val stu = Student1("1", 2, "Tom", 3)
         stu.read()
         stu.doHomeWorks()
@@ -114,6 +119,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun collection_lambda() {
+        println("--------------------collection_lambda--------------------")
         CollectionDemo.listof()
         CollectionDemo.mutableListOf()
 
@@ -143,6 +149,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun base2() {
+        println("--------------------base2--------------------")
         NullCheck.checkNull_if(null)
         NullCheck.checkNull_kt1(null)
         NullCheck.checkNull_kt2(null)
@@ -162,6 +169,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun base3() {
+        println("--------------------base3--------------------")
         StandardFun.repeatCall()
         StandardFun.with()
         StandardFun.run()
@@ -174,6 +182,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun chapter4() {
+        println("--------------------chapter4--------------------")
         LateInit.doIt()// 延迟初始化
 
         // 密封类
@@ -182,6 +191,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun chapter5() {
+        println("--------------------chapter5--------------------")
         ExpandFun.test()// 扩展函数
         ExpandFun.operator()// 扩展函数 * 运算符重载
 
@@ -190,6 +200,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun chapter6() {
+        println("--------------------chapter6--------------------")
+        HigherFun.test()
 
+        // 对比内联函数和非内联函数的return，后者只能局部return
+        Noinline.inlineMain()
+        Noinline.noinlineMain()
+
+        Crossline.runRunnable1 { }
     }
 }
