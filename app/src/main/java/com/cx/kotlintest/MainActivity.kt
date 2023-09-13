@@ -24,6 +24,7 @@ import com.cx.kotlintest.chapter5_expand_operator.operator.OperatorTest
 import com.cx.kotlintest.chapter6_higherFun.Crossline
 import com.cx.kotlintest.chapter6_higherFun.HigherFun
 import com.cx.kotlintest.chapter6_higherFun.Noinline
+import com.cx.kotlintest.chapter7_higherFunUse.SpSimple
 import kotlin.math.max
 
 class MainActivity : AppCompatActivity() {
@@ -77,6 +78,8 @@ class MainActivity : AppCompatActivity() {
         chapter5()
         // 高阶函数、内联、非内联
         chapter6()
+        // 高阶函数应用：简化SP、ContentValue
+        chapter7()
     }
 
     private fun base() {
@@ -201,12 +204,22 @@ class MainActivity : AppCompatActivity() {
 
     private fun chapter6() {
         println("--------------------chapter6--------------------")
-        HigherFun.test()
+        HigherFun.base()
+        HigherFun.lambda()
 
         // 对比内联函数和非内联函数的return，后者只能局部return
         Noinline.inlineMain()
         Noinline.noinlineMain()
 
         Crossline.runRunnable1 { }
+    }
+
+    private fun chapter7() {
+        println("--------------------chapter7--------------------")
+        SpSimple.oldWrite(this)
+        SpSimple.newWrite(this)
+        SpSimple.ktxSP(this)// kotlin原生的ktx扩展库自带的方法：简化SP调用
+
+        SpSimple.read(this)
     }
 }
