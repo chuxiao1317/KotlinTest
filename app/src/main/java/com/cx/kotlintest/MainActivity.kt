@@ -78,7 +78,7 @@ class MainActivity : AppCompatActivity() {
         chapter5()
         // 高阶函数、内联、非内联
         chapter6()
-        // 高阶函数应用：简化SP、ContentValue
+        // 高阶函数应用：简化SP、数据库ContentValue
         chapter7()
     }
 
