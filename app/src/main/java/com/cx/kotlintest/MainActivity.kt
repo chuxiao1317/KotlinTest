@@ -24,7 +24,9 @@ import com.cx.kotlintest.chapter5_expand_operator.operator.OperatorTest
 import com.cx.kotlintest.chapter6_higherFun.Crossline
 import com.cx.kotlintest.chapter6_higherFun.HigherFun
 import com.cx.kotlintest.chapter6_higherFun.Noinline
-import com.cx.kotlintest.chapter7_higherFunUse.SpSimple
+import com.cx.kotlintest.chapter7_higherFun_Apply.SpSimple
+import com.cx.kotlintest.chapter8_genericity_entrust.Genericity
+import com.cx.kotlintest.chapter8_genericity_entrust.Genericity.apply2
 import kotlin.math.max
 
 class MainActivity : AppCompatActivity() {
@@ -78,8 +80,10 @@ class MainActivity : AppCompatActivity() {
         chapter5()
         // 高阶函数、内联、非内联
         chapter6()
-        // 高阶函数应用：简化SP、数据库ContentValue
+        // 高阶函数应用：简化SP、数据库ContentValue（未完，暂先跳过）
         chapter7()
+        // 泛型和委托
+        chapter8()
     }
 
     private fun base() {
@@ -221,5 +225,25 @@ class MainActivity : AppCompatActivity() {
         SpSimple.ktxSP(this)// kotlin原生的ktx扩展库自带的方法：简化SP调用
 
         SpSimple.read(this)
+    }
+
+    private fun chapter8() {
+        println("--------------------chapter8--------------------")
+        Genericity.toClass()// 泛型类
+
+        //Genericity.toMethod<Int>("张三")// 泛型方法
+        Genericity.toMethod("张三")// 泛型方法简化
+        Genericity.toMethod(null)// 不指定上界时，泛型方法参数可为空
+
+        Genericity.toMethodNum(123)// 限制上界为数字类型的泛型方法
+
+        //Genericity.toMethod_NoNull(null)// 这行代码传null会报错
+        Genericity.toMethod_NoNull(456)// 指定上界为Any
+
+        val result = StringBuilder().apply2 {
+            append("任何类型的变量都可以调用自建的泛型方法apply2，")
+            append("用法与标准函数apply一模一样")
+        }
+        println(result)
     }
 }

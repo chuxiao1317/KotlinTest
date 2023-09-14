@@ -1,4 +1,4 @@
-package com.cx.kotlintest.chapter7_higherFunUse
+package com.cx.kotlintest.chapter7_higherFun_Apply
 
 import android.content.ContentValues
 
