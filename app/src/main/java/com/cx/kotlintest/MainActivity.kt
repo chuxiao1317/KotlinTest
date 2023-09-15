@@ -27,6 +27,8 @@ import com.cx.kotlintest.chapter6_higherFun.Noinline
 import com.cx.kotlintest.chapter7_higherFun_Apply.SpSimple
 import com.cx.kotlintest.chapter8_genericity_entrust.Genericity
 import com.cx.kotlintest.chapter8_genericity_entrust.Genericity.apply2
+import com.cx.kotlintest.chapter8_genericity_entrust.entrust.byLazy.ByLazy
+import com.cx.kotlintest.chapter8_genericity_entrust.entrust.byLazy.ByLazy_Mine
 import kotlin.math.max
 
 class MainActivity : AppCompatActivity() {
@@ -82,7 +84,7 @@ class MainActivity : AppCompatActivity() {
         chapter6()
         // 高阶函数应用：简化SP、数据库ContentValue（未完，暂先跳过）
         chapter7()
-        // 泛型和委托
+        // 泛型、委托、懒加载
         chapter8()
     }
 
@@ -245,5 +247,19 @@ class MainActivity : AppCompatActivity() {
             append("用法与标准函数apply一模一样")
         }
         println(result)
+
+        // 委托
+        entrust()
+    }
+
+    /**
+     * 委托
+     * */
+    private fun entrust() {
+        // 委托的基本理解请看classEntrust、propEntrust目录，这里只是委托的应用
+
+        ByLazy.test()// 原生懒加载：by lazy
+        // todo：这个自定义懒加载没生效；另外也无法完全替代lazy，会标黄，报类型转换错误
+        ByLazy_Mine.test()// 自定义懒加载：用于理解委托的应用
     }
 }
