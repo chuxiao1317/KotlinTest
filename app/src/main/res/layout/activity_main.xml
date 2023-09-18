@@ -12,10 +12,25 @@
         android:layout_height="wrap_content" />
 
     <TextView
+        android:id="@+id/tv_jump1"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:background="@android:color/holo_blue_light"
         android:gravity="center"
-        android:text="Hello World!" />
+        android:padding="10dp"
+        android:text="简单跳转" />
+
+    <TextView
+        android:id="@+id/tv_jump2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:background="@android:color/holo_blue_light"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="传值跳转" />
 
 </LinearLayout>

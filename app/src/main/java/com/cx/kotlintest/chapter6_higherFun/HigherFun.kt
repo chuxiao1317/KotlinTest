@@ -19,6 +19,8 @@ object HigherFun {
      *
      * inline: 内联函数关键字，可以消除lambda创建匿名类带来的额外运行时开销；
      * inline不写也不会有大问题，但最好还是写上
+     *
+     * // todo 内联函数的原理见P297
      * */
     private inline fun compute(num1: Int, num2: Int, method: (Int, Int) -> Int) = method(num1, num2)
 

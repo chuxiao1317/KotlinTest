@@ -18,6 +18,7 @@ import com.cx.kotlintest.base1_oop_collection_lanmda.oop.Student1
 import com.cx.kotlintest.base3_standard_static.StandardFun
 import com.cx.kotlintest.base3_standard_static.StaticFun
 import com.cx.kotlintest.base3_standard_static.topStatic
+import com.cx.kotlintest.chapter10_genericityHigher.GenericityReal
 import com.cx.kotlintest.chapter4_lateinit_sealed.LateInit
 import com.cx.kotlintest.chapter4_lateinit_sealed.Result
 import com.cx.kotlintest.chapter5_expand_operator.ExpandFun
@@ -89,6 +90,8 @@ class MainActivity : AppCompatActivity() {
         chapter8()
         // infix函数：优化可读性
         chapter9()
+        // 泛型的高级特性
+        chapter10()
     }
 
     private fun base() {
@@ -269,5 +272,10 @@ class MainActivity : AppCompatActivity() {
     private fun chapter9() {
         println("--------------------chapter9--------------------")
         Infix.test()
+    }
+
+    private fun chapter10() {
+        println("--------------------chapter10--------------------")
+        GenericityReal.test(this)// 泛型实化
     }
 }
