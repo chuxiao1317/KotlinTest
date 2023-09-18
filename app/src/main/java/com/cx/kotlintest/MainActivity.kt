@@ -2,6 +2,7 @@ package com.cx.kotlintest
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.cx.kotlintest.chapter9_infix.Infix
 import com.cx.kotlintest.base.For
 import com.cx.kotlintest.base.If
 import com.cx.kotlintest.base.When
@@ -86,6 +87,8 @@ class MainActivity : AppCompatActivity() {
         chapter7()
         // 泛型、委托、懒加载
         chapter8()
+        // infix函数：优化可读性
+        chapter9()
     }
 
     private fun base() {
@@ -261,5 +264,10 @@ class MainActivity : AppCompatActivity() {
         ByLazy.test()// 原生懒加载：by lazy
         // todo：这个自定义懒加载没生效；另外也无法完全替代lazy，会标黄，报类型转换错误
         ByLazy_Mine.test()// 自定义懒加载：用于理解委托的应用
+    }
+
+    private fun chapter9() {
+        println("--------------------chapter9--------------------")
+        Infix.test()
     }
 }
