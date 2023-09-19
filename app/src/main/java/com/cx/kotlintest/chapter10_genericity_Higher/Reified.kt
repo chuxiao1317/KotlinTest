@@ -1,4 +1,4 @@
-package com.cx.kotlintest.chapter10_genericityHigher
+package com.cx.kotlintest.chapter10_genericity_Higher
 
 import android.content.Context
 import android.content.Intent
@@ -14,11 +14,11 @@ import com.cx.kotlintest.activities.TestActivity
  * java1.5之前没有泛型，list取出数据需要手动强转
  * java泛型擦除机制：java1.5引入泛型，但泛型对于类型的约束只在编译期存在，运行的时候仍按jdk1.5之前的机制运行，jvm无法识别我们在代码中指定的泛型
  * */
-object GenericityReal {
+object Reified {
 
     /**
      * reified关键字: 泛型实化
-     * 直接返回泛型的实际类型 T.class，这在java中是不合法的
+     * 声明后可直接返回泛型的实际类型 T.class，这在java中是不合法的
      *
      * 必须是内联函数
      * */

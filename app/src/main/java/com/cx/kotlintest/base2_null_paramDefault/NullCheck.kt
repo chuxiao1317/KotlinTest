@@ -5,7 +5,7 @@ import com.cx.kotlintest.base1_oop_collection_lanmda.oop.Study
 
 object NullCheck {
     /**
-     * kotlin默认所有传参都是不能为空的，传null就会报错
+     * todo kotlin默认所有传参都是不能为空的，传null就会报错
      *
      * 如果确实可能需要传null，就要在定义方法的时候在参数类型后面加上【?】
      * 这个时候就必须判空，否则编译不过

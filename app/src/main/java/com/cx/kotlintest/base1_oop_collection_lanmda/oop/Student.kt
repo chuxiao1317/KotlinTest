@@ -3,6 +3,7 @@ package com.cx.kotlintest.base1_oop_collection_lanmda.oop
 /**
  * 继承Person类
  * Person(): kotlin沿袭java规定——子类构造函数必须调用父类构造方法,所以带()
+ *
  * 此处定义主构造函数必须传入两个参数
  * */
 class Student(val studyNum: String, val grade: Int) : Person() {

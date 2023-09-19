@@ -18,7 +18,10 @@ import com.cx.kotlintest.base1_oop_collection_lanmda.oop.Student1
 import com.cx.kotlintest.base3_standard_static.StandardFun
 import com.cx.kotlintest.base3_standard_static.StaticFun
 import com.cx.kotlintest.base3_standard_static.topStatic
-import com.cx.kotlintest.chapter10_genericityHigher.GenericityReal
+import com.cx.kotlintest.chapter10_genericity_Higher.Reified
+import com.cx.kotlintest.chapter10_genericity_Higher.covariation.Covariation
+import com.cx.kotlintest.chapter10_genericity_Higher.covariation.ListVerify
+import com.cx.kotlintest.chapter10_genericity_Higher.inversion.Inversion
 import com.cx.kotlintest.chapter4_lateinit_sealed.LateInit
 import com.cx.kotlintest.chapter4_lateinit_sealed.Result
 import com.cx.kotlintest.chapter5_expand_operator.ExpandFun
@@ -35,10 +38,12 @@ import kotlin.math.max
 
 class MainActivity : AppCompatActivity() {
 
-    /*永远优先使用常量，除非不得不使用变量*/
+    /* todo 永远优先使用常量，除非不得不使用变量*/
     private var a = 1// var 是可变变量
+
+    // val变量赋值以后，有【只读】性质
     private val b = 2// val 是不可变变量，即final，注意，js中并没有val，有的是var、let
-    /*永远优先使用常量，除非不得不使用变量*/
+    /* todo 永远优先使用常量，除非不得不使用变量*/
 
     // 限定数据类型为int，注意，kotlin中，没有类似java的基本数据类型，全都是对象数据类型
     private val c: Int = 10
@@ -90,7 +95,7 @@ class MainActivity : AppCompatActivity() {
         chapter8()
         // infix函数：优化可读性
         chapter9()
-        // 泛型的高级特性
+        // 泛型的高级特性：实化、协变、逆变
         chapter10()
     }
 
@@ -245,7 +250,7 @@ class MainActivity : AppCompatActivity() {
 
         Genericity.toMethodNum(123)// 限制上界为数字类型的泛型方法
 
-        //Genericity.toMethod_NoNull(null)// 这行代码传null会报错
+        //Genericity.toMethod_NoNull(null)// todo 这行代码传null会报错
         Genericity.toMethod_NoNull(456)// 指定上界为Any
 
         val result = StringBuilder().apply2 {
@@ -274,8 +279,20 @@ class MainActivity : AppCompatActivity() {
         Infix.test()
     }
 
+    /**
+     * 协变：定义一个myClass<T>、class A、class B, A是B子类， myClass<A>是myClass<B>的子类型，称myClass在T泛型上是协变的
+     * 逆变：定义一个myClass<T>、class A、class B, A是B子类， myClass<B>是myClass<A>的子类型，称myClass在T泛型上是逆变的
+     *
+     * out位置：泛型类或泛型方法中输出数据的地方，可以理解为返回值位置（get）
+     * in位置：接收数据的地方，可以理解为参数位置（set或构造方法）
+     * */
     private fun chapter10() {
         println("--------------------chapter10--------------------")
-        GenericityReal.test(this)// 泛型实化
+        Reified.test(this)// 泛型实化
+
+        Covariation.test()// 理解泛型的协变
+        ListVerify.verify()// 验证List协变
+
+        Inversion.test()// 理解泛型的逆变
     }
 }
