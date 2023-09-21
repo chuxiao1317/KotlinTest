@@ -30,11 +30,11 @@ object Reified {
         println("result1类型：$result1")
         println("result2类型：$result2")
 
-        context.findViewById<TextView>(R.id.tv_jump1).setOnClickListener {
+        context.findViewById<TextView>(R.id.btn_jump1).setOnClickListener {
             // 无参跳转
             startActivity<TestActivity>(context)
         }
-        context.findViewById<TextView>(R.id.tv_jump2).setOnClickListener {
+        context.findViewById<TextView>(R.id.btn_jump2).setOnClickListener {
             // 带参跳转
             startActivity<TestActivity>(context) {
                 putExtra(ConstantCX.IntentTag.JUMP_NO_PARAM, "123")

@@ -22,6 +22,7 @@ import com.cx.kotlintest.chapter10_genericity_Higher.Reified
 import com.cx.kotlintest.chapter10_genericity_Higher.covariation.Covariation
 import com.cx.kotlintest.chapter10_genericity_Higher.covariation.ListVerify
 import com.cx.kotlintest.chapter10_genericity_Higher.inversion.Inversion
+import com.cx.kotlintest.chapter11_coroutine.Coroutine
 import com.cx.kotlintest.chapter4_lateinit_sealed.LateInit
 import com.cx.kotlintest.chapter4_lateinit_sealed.Result
 import com.cx.kotlintest.chapter5_expand_operator.ExpandFun
@@ -34,6 +35,7 @@ import com.cx.kotlintest.chapter8_genericity_entrust.Genericity
 import com.cx.kotlintest.chapter8_genericity_entrust.Genericity.apply2
 import com.cx.kotlintest.chapter8_genericity_entrust.entrust.byLazy.ByLazy
 import com.cx.kotlintest.chapter8_genericity_entrust.entrust.byLazy.ByLazy_Mine
+import kotlinx.coroutines.runBlocking
 import kotlin.math.max
 
 class MainActivity : AppCompatActivity() {
@@ -97,6 +99,8 @@ class MainActivity : AppCompatActivity() {
         chapter9()
         // 泛型的高级特性：实化、协变、逆变
         chapter10()
+        // 协程
+        chapter11()
     }
 
     private fun base() {
@@ -294,5 +298,20 @@ class MainActivity : AppCompatActivity() {
         ListVerify.verify()// 验证List协变
 
         Inversion.test()// 理解泛型的逆变
+    }
+
+    private fun chapter11() {
+        println("--------------------chapter11--------------------")
+        Coroutine.test()// 协程最简单的用法
+        Coroutine.apply(this)// 体验协程的优势
+
+        // todo 这行代码会报错，因为非协程作用域、非挂起函数不能调用挂起函数
+        //Coroutine.testDelay()
+        //Coroutine.testCoroutineScope()
+        runBlocking {
+            Coroutine.testDelay()// 协程作用域调用挂起函数
+            Coroutine.testCoroutineScope()// 挂起函数中调用launch()
+        }
+        Coroutine.testCoroutineScope2()
     }
 }
